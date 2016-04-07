@@ -20,7 +20,7 @@ function createImageTool(imageObj, y, isRepeater) {
     height: 120,
     draggable: true,
     isRepeater: isRepeater,
-    shadowEnabled: !isRepeater,
+    shadowEnabled: false,
     createReplacement: function () {
       return createImageTool(imageObj, y, isRepeater); // curry, ftw!
     }
@@ -54,16 +54,6 @@ toolLayer.on('dragstart', function (evt) {
   var shape = evt.target;
   shape.moveTo(dragLayer);
   toolLayer.add(shape.getAttr('createReplacement')());
-  shape.setAttrs({
-    shadowOffset: {
-      x: 3,
-      y: 3
-    },
-    scale: {
-      x: 1.2,
-      y: 1.2
-    }
-  });
 });
 
 displayLayer.on('dragstart', function (evt) {
