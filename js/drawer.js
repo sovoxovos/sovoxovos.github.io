@@ -2,7 +2,7 @@
 var stage = new Konva.Stage({
   container: 'container',   // id of container <div>
   width: 800,
-  height: 600
+  height: 800
 });
 
 // then create layer
@@ -17,7 +17,7 @@ function createImageTool(imageObj, y, isRepeater) {
     x: 20,
     y: y,
     width: imageObj.width/imageObj.height * 120,
-    height: 120,
+    height: 180,
     draggable: true,
     isRepeater: isRepeater,
     shadowEnabled: false,
