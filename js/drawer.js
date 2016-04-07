@@ -29,7 +29,7 @@ function createImageTool(imageObj, y, isRepeater) {
 
 
 // add the shape to the layer
-initImageTool('img/nic.png', 0, true);
+initImageTool('img/repeater.png', 0, true);
 initImageTool('img/1.png', 120);
 initImageTool('img/2.png', 240);
 initImageTool('img/3.png', 360);
@@ -60,16 +60,6 @@ displayLayer.on('dragstart', function (evt) {
   var shape = evt.target;
   shape.moveTo(dragLayer);
   displayLayer.draw();
-  shape.setAttrs({
-    shadowOffset: {
-      x: 3,
-      y: 3
-    },
-    scale: {
-      x: 1.2,
-      y: 1.2
-    }
-  });
 });
 
 dragLayer.on('dragmove', function (evt) {
@@ -89,14 +79,6 @@ dragLayer.on('dragmove', function (evt) {
 
 dragLayer.on('dragend', function(evt) {
   var shape = evt.target;
-  console.log(shape.getAttr('isRepeater'));
   shape.moveTo(displayLayer);
   stage.draw();
-  shape.to({
-    duration: 0.5,
-    easing: Konva.Easings.ElasticEaseOut,
-    scaleX: 1,
-    scaleY: 1,
-    shadowColor: 'rgba(0,0,0,0)'
-  });
 });
